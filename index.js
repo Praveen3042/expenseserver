@@ -1,10 +1,10 @@
 const express = require("express");
-const dbConfig = require("./config/db.config");
+//const dbConfig = require("./config/db.config");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const bodyParser = require("body-parser");
-const expense=require('./src/Routes/expense.apiRoutes')
+const expense=require('./Routes/Tracker.apiRoutes')
 mongoose.Promise = global.Promise;
 
 
@@ -14,7 +14,7 @@ const port = process.PORT||4000;
 
 //
 mongoose
-  .connect(dbConfig.url)
+  .connect(process.env.mongoose_connection)
   .then(() => {
     console.log("Db connected");
   })
